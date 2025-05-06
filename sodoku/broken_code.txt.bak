@@ -1,0 +1,91 @@
+
+main.go Draw
+//if g.cell == nil {
+	//	g.cellImage = ebiten.NewImage(1600,900)
+	//}
+	//if g.prison == nil{
+		//g.prisonImage = ebiten.NewImage(1920,1080)
+	//}
+	//screen.Fill(backgroundColour);
+	//ebitenutil.DebugPrint(screen, "Sodoku Time!")
+	//g.cell.Draw(g.cellImage)
+	//g.prison.Draw(g.prisonImage)
+	//screen.DrawImage(g.prisonImage,nil)
+
+// calculates Single Digit Value(1-9) from two given numbers(row and col)
+//func calcSDV(row int, col int) int {
+	//value := 3*row + col + 1
+	//return value
+//}
+
+//func blockLabel(sdv int) string{
+	//switch sdv {
+		//case 1:
+		//return "A"
+	
+		//case 2:
+		//return "B"
+	
+		//case 3:
+		//return "C"
+	
+		//case 4:
+		//return "D"
+	
+		//case 5:
+		//return "E"
+	
+		//case 6:
+		//return "F"
+	
+		//case 7:
+		//return "G"
+	
+		//case 8:
+		//return "H"
+	
+		//case 9: 
+		//return "I"
+	
+		//default:
+		//return "X"
+	//}
+//}
+
+func (p *Prison) Update() {
+}
+prison.go Draw
+//	blockDim := p.block.Size(p.cellSize, p.sqBlockDim, p.margin)
+	var blockImage = ebiten.NewImage
+//	var bIm = ebiten.NewImage(256,256)
+	p.blockImage = ebiten.NewImage(256,256)
+	//p.blockImage = ebiten.NewImage(328,328)
+	//p.cellImage = ebiten.NewImage(16,16)
+	//p.cellImage.Fill(cellColour)
+	p.blockImage.Fill(frameColour)
+	for blockRow := 0; blockRow < 1; blockRow++{
+		for blockCol := 0; blockCol < 1; blockCol++{
+			
+		//	blockSDV := calcSDV(blockRow, blockCol)
+		//	lbl := blockLabel(blockSDV)
+			
+			//for cellRow := 0; cellRow < 3; cellRow++{
+				//for cellCol := 0; cellCol < 3; cellCol++{
+		//			//cellSDV := calcSDV(cellRow,cellCol)
+					//cop := &ebiten.DrawImageOptions{}
+					//x := cellRow*16 + (cellRow+1)*4
+					//y := cellCol*16 + (cellCol+1)*4
+					//cop.GeoM.Translate(float64(x), float64(y))
+					//p.blockImage.DrawImage(p.cellImage, cop)
+		//			//p.cell = NewCell(p.cellSize,lbl,cellSDV,x,y)
+			//	}
+		//	}
+		//	p.block = NewBlock(blockDim, lbl)
+			bop := &ebiten.DrawImageOptions{}
+			x := blockRow*256 + (blockRow+1)*4 //how to call the size of a block
+			y := blockCol*256 + (blockCol+1)*4 // how to call the size of a block
+			bop.GeoM.Translate(float64(x),float64(y))
+			//blockImage.DrawImage(cellImage, op)
+			pIM.DrawImage(p.blockImage, bop)	
+		}
+	}

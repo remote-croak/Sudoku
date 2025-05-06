@@ -1,0 +1,43 @@
+package sodoku
+
+import(
+	
+	"github.com/hajimehoshi/ebiten/v2"
+)
+
+type RePrison struct {
+	
+
+	cellSize int
+	//sqBlockDim int
+	//margin int
+	
+}
+
+func NewPrison(cellSize int) (*Prison, error) {
+	p := &Prison{
+		cellSize: cellSize,
+	}
+	
+	return p, nil
+}
+
+
+//TODO: Calculate size of Block Image using Cell Image dimensions
+// Figure out how to seperate Cell Image Draw into it's own struct
+func (p *RePrison) Draw(prisonImage *ebiten.Image){
+
+
+	
+	var blockImage = ebiten.NewImage(328,328)
+	
+	for row := 0; row < 3; row++{
+		for col := 0; col < 3; col++{
+			op := &ebiten.DrawImageOptions{}
+			x := row*328 + (row+1)*4
+			y := col*328 + (row+1)*4
+			op.GeoM.Translate(float64(x), float64(y))
+			prisonImage.DrawImage(blockImage, op)
+			}
+			}
+}
